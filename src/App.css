@@ -14,14 +14,35 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-flow: row nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 0 5%;
+}
+
+.App-header nav {
+  border: 1px solid red;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.linker{
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid black;
+  width: 100px;
+  color: black;
+
+}
+.pizza-list {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.pizza-form {
+  display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
