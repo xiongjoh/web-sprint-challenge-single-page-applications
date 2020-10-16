@@ -37,11 +37,14 @@
 }
 .pizza-list {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column;
+  width: 50%;
+  margin-bottom: 5%;
 }
 .pizza-form {
   display: flex;
-  justify-content: space-around;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
   align-items: center;
 }
 
