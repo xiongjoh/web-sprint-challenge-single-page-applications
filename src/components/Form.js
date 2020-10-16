@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Form(props) {
-    const {values, change, submit, disabled} = props
+    const {values, change, submit, disabled, errors} = props
 
 
     // Event Helpers
@@ -17,6 +17,10 @@ export default function Form(props) {
 
     return (
         <form className="pizza-form" onSubmit={onSubmit}>
+            <div className="errors">
+                <p>{errors.name}</p>
+                <p>{errors.size}</p>
+            </div>
             <div className="pizza-list">
             <label>Name: 
                 <input

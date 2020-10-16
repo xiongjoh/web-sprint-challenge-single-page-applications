@@ -48,6 +48,15 @@
   align-items: center;
 }
 
+.errors {
+  color: red;
+  width: 90%;
+  text-align: center;
+}
+.errors p{
+  margin:0;
+}
+
 .App-link {
   color: #61dafb;
 }

@@ -17,6 +17,11 @@ const initialFormOrder = {
   cheese: false,
 }
 
+const initialFormErrors = {
+  name: '',
+  size: '',
+}
+
 const initialReceivedOrders = []
 const initialDisabled = true
 const apiToUse = 'https://reqres.in/api/users'
@@ -26,6 +31,7 @@ const App = () => {
   const [formValues, setFormValues] = useState(initialFormOrder)
   const [pizzaOrders, setPizzaOrders] = useState(initialReceivedOrders)
   const [disabled, setDisabled] = useState(initialDisabled)
+  const [formErrors, setFormErrors] = useState(initialFormErrors)
 
 
 // helper
@@ -43,6 +49,13 @@ const App = () => {
 
   // Event Handler
   const change = (name, value) => {
+    yup.reach(schema, name).validate(value)
+    .then(res => {
+      setFormErrors({...formErrors, [name]:''})
+    })
+    .catch(err => {
+      setFormErrors({...formErrors, [name]:err.errors[0]})
+    })
     setFormValues({...formValues, [name]:value})
   }
 
@@ -87,7 +100,12 @@ const App = () => {
       </header>
       <Route exact path='/' component={Home}/>
       <Route path='/pizza' render={(props) => (
-      <Form {...props} values={formValues} change={change} submit={submit} disabled={disabled}/>
+      <Form {...props} 
+      values={formValues} 
+      change={change} 
+      submit={submit} 
+      disabled={disabled}
+      errors={formErrors}/>
       )}/>
     </>
   );
