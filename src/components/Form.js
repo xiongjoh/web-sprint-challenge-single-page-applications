@@ -28,7 +28,7 @@ export default function Form(props) {
             <label>Pizza Size:
                 <select
                 onChange={onChange}
-                value={values.role}
+                value={values.size}
                 name='size'
                 >
                     <option value=''>--Select Pizza Size--</option>

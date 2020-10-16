@@ -40,7 +40,7 @@ const App = () => {
       chicken: formValues.chicken,
     }
     setPizzaOrders([newOrder, ...pizzaOrders])
-    
+
     setFormValues(initialFormOrder)
   }
 
