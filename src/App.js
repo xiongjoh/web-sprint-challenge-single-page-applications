@@ -25,6 +25,8 @@ const App = () => {
   const [pizzaOrders, setPizzaOrders] = useState(initialReceivedOrders)
   const [disabled, setDisabled] = useState(initialDisabled)
 
+
+  // Event Handler
   const change = (name, value) => {
     setFormValues({...formValues, [name]:value})
   }
@@ -43,6 +45,9 @@ const App = () => {
 
     setFormValues(initialFormOrder)
   }
+
+
+  // Side Effects 
 
   useEffect(() => {
     console.log(pizzaOrders)
