@@ -5,6 +5,7 @@ import Form from './components/Form'
 import './App.css'
 import * as yup from 'yup'
 import schema from './validation/formSchema'
+import axios from 'axios'
 
 const initialFormOrder = {
   name: '',
@@ -18,12 +19,26 @@ const initialFormOrder = {
 
 const initialReceivedOrders = []
 const initialDisabled = true
+const apiToUse = 'https://reqres.in/api/users'
 
 const App = () => {
 
   const [formValues, setFormValues] = useState(initialFormOrder)
   const [pizzaOrders, setPizzaOrders] = useState(initialReceivedOrders)
   const [disabled, setDisabled] = useState(initialDisabled)
+
+
+// helper
+
+  const postChange = (order) => {
+    axios.post(apiToUse, order)
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
 
   // Event Handler
@@ -42,6 +57,8 @@ const App = () => {
       chicken: formValues.chicken,
     }
     setPizzaOrders([newOrder, ...pizzaOrders])
+
+    postChange(newOrder)
 
     setFormValues(initialFormOrder)
   }
